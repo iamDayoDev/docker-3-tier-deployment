@@ -54,7 +54,6 @@ systemctl status nginx
 Navigate to a temporary directory and **clone the repository**:  
 
 ```sh
-cd /tmp
 git clone https://github.com/pravinmishraaws/my-react-app.git
 cd my-react-app
 ```
