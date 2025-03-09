@@ -162,7 +162,7 @@ http://203.0.113.25
 To ensure the application is running correctly, run:
 
 ```sh
-curl localhost
+curl <public-ip>
 ```
 
 If everything is set up properly, you should see the HTML content of the React app.
