@@ -127,22 +127,9 @@ sudo systemctl restart nginx
 
 ---
 
-## **7. Allow Public Access (Firewall Setup)**  
-Allow HTTP traffic through the firewall:  
-
-```sh
-sudo ufw allow 'Nginx Full'
-```
-
-Check firewall status:  
-
-```sh
-sudo ufw status
-```
-
 ---
 
-## **8. Find Your Public IP and Access the Application**  
+## **7. Find Your Public IP and Access the Application**  
 Retrieve the **public IP** of your Ubuntu VM:  
 
 ```sh
@@ -163,7 +150,7 @@ http://203.0.113.25
 
 ---
 
-## **9. Verify the Deployment**  
+## **8. Verify the Deployment**  
 Ensure Nginx is correctly serving the React app:  
 
 ```sh
