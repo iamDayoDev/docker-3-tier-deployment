@@ -10,75 +10,88 @@ This guide provides step-by-step instructions to deploy and run a **This React a
 
 ---
 
-## **1. Install Nginx**
-First, update package lists and install Nginx:
+
+## **1. Install Node.js and npm**  
+Since React requires **Node.js** and **npm**, install them first:  
 
 ```sh
 sudo apt update
+sudo apt install -y nodejs npm
+```
+
+Verify the installation:  
+
+```sh
+node -v
+npm -v
+```
+
+---
+
+## **2. Install Nginx**  
+Update package lists and install **Nginx**:  
+
+```sh
 sudo apt install -y nginx
 ```
 
-Start and enable Nginx:
+Start and enable Nginx:  
 
 ```sh
 sudo systemctl start nginx
 sudo systemctl enable nginx
 ```
 
-Verify that Nginx is running:
+Check Nginx status:  
 
 ```sh
 systemctl status nginx
 ```
 
-You should see that Nginx is **active and running**.
-
 ---
 
-## **2. Clone the React App and Build It**
-Navigate to a temporary directory and **clone the repository**:
+## **3. Clone the React Application from GitHub**  
+Navigate to a temporary directory and **clone the repository**:  
 
 ```sh
 cd /tmp
 git clone https://github.com/pravinmishraaws/my-react-app.git
-```
-
-Move into the project directory:
-
-```sh
 cd my-react-app
 ```
 
-Install dependencies:
+---
+
+## **4. Install Dependencies and Build the React App**  
+Install required dependencies:  
 
 ```sh
 npm install
 ```
 
-Build the React app for production:
+Build the React application:  
 
 ```sh
 npm run build
 ```
 
-This will create a `build/` folder with the **static files** for deployment.
+This will generate a **`build/`** folder with production-ready static files.
 
 ---
 
-## **3. Deploy the Build Files to the Web Directory**
-First, **remove any existing files** in the Nginx web directory:
+## **5. Deploy Build Files to Nginx Web Directory**  
+Remove any existing files in the Nginx web directory:  
 
 ```sh
 sudo rm -rf /var/www/html/*
 ```
 
-Now, **copy the newly built React files** to `/var/www/html/`:
+Copy the React **build files** to `/var/www/html/`:  
 
 ```sh
 sudo cp -r build/* /var/www/html/
 ```
 
-Ensure the files have the correct ownership and permissions:
+Set proper permissions:  
 
 ```sh
 sudo chown -R www-data:www-data /var/www/html
@@ -87,14 +100,14 @@ sudo chmod -R 755 /var/www/html
 
 ---
 
-## **4. Configure Nginx to Serve the React App**
-Edit the Nginx configuration:
+## **6. Configure Nginx for React**  
+Edit the Nginx configuration file:  
 
 ```sh
 sudo nano /etc/nginx/sites-available/default
 ```
 
-Replace the content with:
+Replace the content with:  
 
 ```nginx
 server {
@@ -112,9 +125,9 @@ server {
 }
 ```
 
-Save the file (`CTRL + X`, then `Y`, then `ENTER`).
+Save and exit (`CTRL + X`, then `Y`, then `ENTER`).  
 
-Restart Nginx to apply the changes:
+Restart Nginx to apply the changes:  
 
 ```sh
 sudo systemctl restart nginx
@@ -122,14 +135,14 @@ sudo systemctl restart nginx
 
 ---
 
-## **5. Open Firewall for Public Access**
-If **UFW (Uncomplicated Firewall)** is enabled, allow HTTP traffic:
+## **7. Allow Public Access (Firewall Setup)**  
+Allow HTTP traffic through the firewall:  
 
 ```sh
 sudo ufw allow 'Nginx Full'
 ```
 
-To check if the firewall is active:
+Check firewall status:  
 
 ```sh
 sudo ufw status
@@ -137,20 +150,20 @@ sudo ufw status
 
 ---
 
-## **6. Find Your Public IP and Share It with Students**
-To find the **public IP** of your Ubuntu VM, run:
+## **8. Find Your Public IP and Access the Application**  
+Retrieve the **public IP** of your Ubuntu VM:  
 
 ```sh
 curl ifconfig.me
 ```
 
-Now, students can **access the application** in their browser using:
+Now, students can **access the React application** in a browser using:  
 
 ```
-http://<public-ip>
+http://<your-public-ip>
 ```
 
-For example, if the public IP is `203.0.113.25`, students should visit:
+For example, if the public IP is **203.0.113.25**, visit:  
 
 ```
 http://203.0.113.25
@@ -158,17 +171,22 @@ http://203.0.113.25
 
 ---
 
-## **7. Verify the Deployment**
-To ensure the application is running correctly, run:
+## **9. Verify the Deployment**  
+Ensure Nginx is correctly serving the React app:  
 
 ```sh
-curl <public-ip>
+curl <your-public-ip>
 ```
 
-If everything is set up properly, you should see the HTML content of the React app.
+If successful, your **React app is live!**  
 
 ---
 
+<<<<<<< HEAD
 ## **Conclusion**
 **Your React app is now deployed on an Ubuntu VM using Nginx and accessible from the public IP!**   
 >>>>>>> 1bbff15 (Update README.md)
+=======
+## **Your React App is Now Live on Ubuntu with Nginx!**  
+Now your **React application** is deployed on an **Ubuntu VM with Nginx**, accessible from a **public IP**. 
+>>>>>>> 3cbbd21 (Update README.md)
