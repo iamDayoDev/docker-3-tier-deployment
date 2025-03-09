@@ -101,31 +101,23 @@ sudo chmod -R 755 /var/www/html
 ---
 
 ## **6. Configure Nginx for React**  
-Edit the Nginx configuration file:  
+Nginx configuration file:   
 
-```sh
-sudo nano /etc/nginx/sites-available/default
 ```
-
-Replace the content with:  
-
-```nginx
-server {
+echo 'server {
     listen 80;
     server_name _;
-
     root /var/www/html;
     index index.html;
-
+    
     location / {
         try_files $uri /index.html;
     }
 
     error_page 404 /index.html;
-}
-```
+}' | sudo tee /etc/nginx/sites-available/default > /dev/null
 
-Save and exit (`CTRL + X`, then `Y`, then `ENTER`).  
+```
 
 Restart Nginx to apply the changes:  
 
