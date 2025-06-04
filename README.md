@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# docker-3-tier-deployment
-This is the final README content I want to keep.
-
-=======
+# Docker-3-tier-Deployment
 
 # **Deploy a React Application on Ubuntu VM with Nginx**
 
@@ -157,12 +153,3 @@ curl <your-public-ip>
 If successful, your **React app is live!**  
 
 ---
-
-<<<<<<< HEAD
-## **Conclusion**
-**Your React app is now deployed on an Ubuntu VM using Nginx and accessible from the public IP!**   
->>>>>>> 1bbff15 (Update README.md)
-=======
-## **Your React App is Now Live on Ubuntu with Nginx!**  
-Now your **React application** is deployed on an **Ubuntu VM with Nginx**, accessible from a **public IP**. 
->>>>>>> 3cbbd21 (Update README.md)
