@@ -209,29 +209,43 @@ docker-compose down
 
  **Setup Complexity** 
  - Without Dokcer Compose
+ 
  Manual container creation & linking 
+
  - With Compose
+
  Defined in a single `docker-compose.yml` file 
 
  **Dependency Handling**
  -Without Docker Compose
+
  Must manually start services in order
+
  - With Compose
+
  `depends_on` ensures proper startup
 
  **Networking**
  - Without DOcker Compose
+
  Manually create networks 
+
  - With Compose
+
  Networks are defined in Compose 
 
  **Storage**
  -Without Docker Compose
+
  Manually attach volumes
  - With Compose
+
  Managed by Compose 
+
  **Scalability**
  - WIthout Docker compose
+
  Difficult to scale
- -With Compose
+ - With Compose
+
  Easily scale services with `docker-compose up --scale backend=3` |
