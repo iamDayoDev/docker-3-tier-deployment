@@ -1,8 +1,10 @@
-version: "3.3"
+version: '3.3'
 
 services:
   database:
-    build: ./db
+    build:
+      context: ..
+      dockerfile: multi-tier-app/db/Dockerfile
     container_name: db
     restart: always
     networks:
@@ -13,7 +15,9 @@ services:
       - "27017:27017"
 
   backend:
-    build: ./backend
+    build:
+      context: ..
+      dockerfile: multi-tier-app/backend/Dockerfile
     container_name: api
     restart: always
     depends_on:
